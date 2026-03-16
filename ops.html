@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>David Favour — Partnerships & Operations Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,700;1,9..144,300;1,9..144,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f7f3ee;
+  --white:#ffffff;
+  --s1:#f0ebe3;
+  --s2:#e8e1d6;
+  --ink:#1c1710;
+  --ink2:#3a342a;
+  --muted:#8c8070;
+  --muted2:#a89880;
+  --border:#ddd5c8;
+  --border2:#c8bfb0;
+  --accent:#b85c2a;
+  --accent-l:rgba(184,92,42,0.08);
+  --accent-l2:rgba(184,92,42,0.04);
+  --green:#2a6b4a;
+  --green-l:rgba(42,107,74,0.08);
+  --blue:#1e4a7a;
+  --blue-l:rgba(30,74,122,0.08);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font-weight:400;overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 64px;background:rgba(247,243,238,0.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:'Fraunces',serif;font-weight:700;font-size:1.05rem;letter-spacing:-0.01em;color:var(--ink);text-decoration:none}
+.nav-logo em{font-style:italic;color:var(--accent)}
+.nav-links{display:flex;gap:36px;list-style:none}
+.nav-links a{font-size:0.76rem;letter-spacing:0.04em;color:var(--muted);text-decoration:none;transition:color 0.2s}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{background:var(--ink);color:var(--bg);font-family:'DM Sans',sans-serif;font-weight:600;font-size:0.75rem;letter-spacing:0.04em;padding:10px 22px;text-decoration:none;transition:background 0.2s}
+.nav-cta:hover{background:var(--accent)}
+
+/* HERO */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 480px;gap:60px;align-items:center;padding:100px 64px 80px;border-bottom:1px solid var(--border);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:0;right:0;width:50%;height:100%;background:var(--s1);z-index:0}
+.hero-left{position:relative;z-index:1}
+.hero-right{position:relative;z-index:1}
+.hero-kicker{display:flex;align-items:center;gap:10px;margin-bottom:28px}
+.kicker-line{width:28px;height:2px;background:var(--accent)}
+.kicker-text{font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;font-weight:600;color:var(--accent)}
+.hero h1{font-family:'Fraunces',serif;font-size:clamp(3rem,5.5vw,5.2rem);font-weight:700;line-height:1.05;letter-spacing:-0.02em;color:var(--ink);margin-bottom:20px}
+.hero h1 em{font-style:italic;color:var(--accent);font-weight:300}
+.hero-sub{font-family:'Fraunces',serif;font-size:1.15rem;font-weight:300;font-style:italic;color:var(--muted);margin-bottom:28px;line-height:1.5}
+.hero-desc{font-size:0.9rem;color:var(--ink2);line-height:1.8;margin-bottom:44px;max-width:480px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn-1{background:var(--ink);color:var(--bg);font-family:'DM Sans',sans-serif;font-weight:600;font-size:0.78rem;letter-spacing:0.04em;padding:14px 28px;text-decoration:none;transition:background 0.2s;display:inline-block}
+.btn-1:hover{background:var(--accent)}
+.btn-2{background:transparent;color:var(--muted);font-size:0.78rem;letter-spacing:0.04em;padding:14px 28px;text-decoration:none;border:1.5px solid var(--border2);transition:all 0.2s;display:inline-block;font-weight:500}
+.btn-2:hover{color:var(--ink);border-color:var(--ink)}
+
+/* HERO CARD */
+.hero-card{background:var(--white);border:1px solid var(--border);padding:0;overflow:hidden;box-shadow:0 20px 60px rgba(28,23,16,0.08)}
+.hc-header{background:var(--ink);padding:24px 28px;display:flex;align-items:center;justify-content:space-between}
+.hc-header h3{font-family:'Fraunces',serif;font-size:1rem;font-weight:500;color:var(--bg);letter-spacing:-0.01em;font-style:italic}
+.hc-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+.hc-body{padding:20px 28px}
+.hc-stat{display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--border)}
+.hc-stat:last-child{border-bottom:none}
+.hc-stat .name{font-size:0.78rem;color:var(--ink2)}
+.hc-stat .val{font-family:'Fraunces',serif;font-size:1.4rem;font-weight:700;color:var(--ink);line-height:1}
+.hc-stat .delta{font-size:0.65rem;font-weight:600;display:block;text-align:right;margin-top:2px}
+.delta-g{color:var(--green)}.delta-b{color:var(--blue)}
+.hc-footer{background:var(--s1);padding:16px 28px;display:flex;align-items:center;gap:10px}
+.hc-footer p{font-size:0.72rem;color:var(--muted);line-height:1.4}
+.hc-footer strong{color:var(--accent);font-weight:600}
+
+/* SECTION */
+section{padding:96px 64px;border-bottom:1px solid var(--border)}
+.sec-kicker{font-size:0.65rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+.sec-h{font-family:'Fraunces',serif;font-size:clamp(1.8rem,3.5vw,3rem);font-weight:700;line-height:1.1;letter-spacing:-0.02em;margin-bottom:52px}
+.sec-h em{font-style:italic;font-weight:300;color:var(--muted)}
+
+/* WORK */
+.work-stack{display:flex;flex-direction:column;gap:2px}
+.wk{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--border)}
+.wk-mock{background:var(--white);overflow:hidden;border-bottom:1px solid var(--border)}
+.wk-info{background:var(--white);padding:40px;display:flex;flex-direction:column;justify-content:center}
+.wk-info .tag{font-size:0.62rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:16px;display:inline-block;padding:4px 12px}
+.tag-acc{background:var(--accent-l);color:var(--accent)}
+.tag-grn{background:var(--green-l);color:var(--green)}
+.tag-blu{background:var(--blue-l);color:var(--blue)}
+.wk-info h3{font-family:'Fraunces',serif;font-size:1.5rem;font-weight:700;letter-spacing:-0.01em;margin-bottom:12px;line-height:1.2}
+.wk-info p{font-size:0.85rem;color:var(--ink2);line-height:1.75;margin-bottom:20px}
+.result-row{display:flex;flex-wrap:wrap;gap:8px}
+.res-chip{background:var(--s1);border:1px solid var(--border);color:var(--ink2);font-size:0.68rem;font-weight:600;padding:5px 12px}
+.res-chip.featured{background:var(--accent-l);border-color:rgba(184,92,42,0.2);color:var(--accent)}
+
+/* ── MOCKUP: PROGRAMME REPORT COVER ── */
+.mock-report{background:var(--ink);padding:0;height:360px;overflow:hidden;position:relative}
+.rep-bg-pattern{position:absolute;inset:0;opacity:0.04;background-image:repeating-linear-gradient(45deg,#fff 0px,#fff 1px,transparent 1px,transparent 12px)}
+.rep-content{position:relative;z-index:1;padding:36px;height:100%;display:flex;flex-direction:column;justify-content:space-between}
+.rep-top{display:flex;justify-content:space-between;align-items:flex-start}
+.rep-brand{font-family:'Fraunces',serif;font-size:0.72rem;font-weight:500;color:rgba(247,243,238,0.5);letter-spacing:0.06em;font-style:italic}
+.rep-doc{font-size:0.58rem;color:rgba(247,243,238,0.3);letter-spacing:0.08em;text-transform:uppercase}
+.rep-divider{height:1px;background:linear-gradient(90deg,var(--accent),transparent);margin:20px 0}
+.rep-title{font-family:'Fraunces',serif;font-size:1.8rem;font-weight:700;color:var(--bg);line-height:1.15;margin-bottom:8px;letter-spacing:-0.01em}
+.rep-sub{font-size:0.65rem;color:rgba(247,243,238,0.5);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:20px}
+.rep-tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.rep-tag{font-size:0.58rem;border:1px solid rgba(184,92,42,0.4);color:var(--accent);padding:3px 10px;letter-spacing:0.05em;text-transform:uppercase}
+.rep-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.rm{background:rgba(247,243,238,0.04);border:1px solid rgba(247,243,238,0.08);padding:10px 12px}
+.rm .rv{font-family:'Fraunces',serif;font-weight:700;font-size:1.2rem;color:var(--bg);line-height:1}
+.rm .rl{font-size:0.5rem;color:rgba(247,243,238,0.4);text-transform:uppercase;letter-spacing:0.06em;margin-top:4px}
+.rep-footer{display:flex;justify-content:space-between;align-items:center;font-size:0.55rem;color:rgba(247,243,238,0.25);border-top:1px solid rgba(247,243,238,0.08);padding-top:12px;letter-spacing:0.04em}
+
+/* ── MOCKUP: STAKEHOLDER TRACKER ── */
+.mock-stakeholder{background:var(--white);padding:24px;height:360px;overflow:hidden}
+.sh-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.sh-title{font-family:'Fraunces',serif;font-size:0.9rem;font-weight:700;color:var(--ink);font-style:italic}
+.sh-badge{background:var(--accent-l);color:var(--accent);font-size:0.6rem;font-weight:700;padding:4px 10px;letter-spacing:0.05em;text-transform:uppercase;border:1px solid rgba(184,92,42,0.2)}
+.sh-cols{display:grid;grid-template-columns:2fr 1fr 1fr 1.2fr;gap:8px;padding:8px 12px;background:var(--s1);font-size:0.58rem;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:4px;border:1px solid var(--border)}
+.sh-row{display:grid;grid-template-columns:2fr 1fr 1fr 1.2fr;gap:8px;padding:10px 12px;border:1px solid var(--border);background:var(--white);margin-bottom:3px;font-size:0.68rem;align-items:center;transition:background 0.15s}
+.sh-row:hover{background:var(--s1)}
+.sh-name{font-weight:600;color:var(--ink)}
+.sh-org{color:var(--muted);font-size:0.62rem}
+.sh-badge-sm{font-size:0.56rem;font-weight:700;padding:2px 8px;text-transform:uppercase;letter-spacing:0.04em}
+.sb-partner{background:var(--green-l);color:var(--green);border:1px solid rgba(42,107,74,0.2)}
+.sb-investor{background:var(--blue-l);color:var(--blue);border:1px solid rgba(30,74,122,0.2)}
+.sb-govt{background:var(--accent-l);color:var(--accent);border:1px solid rgba(184,92,42,0.2)}
+.sh-status{font-size:0.62rem;color:var(--muted);font-style:italic}
+
+/* ── MOCKUP: EVENT PLAN ── */
+.mock-event{background:var(--s1);padding:24px;height:360px;overflow:hidden}
+.ev-title{font-family:'Fraunces',serif;font-size:0.9rem;font-weight:700;color:var(--ink);margin-bottom:4px;font-style:italic}
+.ev-sub{font-size:0.6rem;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:16px}
+.ev-timeline{display:flex;flex-direction:column;gap:0}
+.ev-item{display:grid;grid-template-columns:80px 1fr;gap:14px;padding:10px 0;border-bottom:1px solid var(--border);align-items:start}
+.ev-item:last-child{border-bottom:none}
+.ev-time{font-size:0.62rem;color:var(--muted);font-weight:600;letter-spacing:0.04em;padding-top:2px}
+.ev-body h4{font-size:0.72rem;font-weight:600;color:var(--ink);margin-bottom:3px}
+.ev-body p{font-size:0.62rem;color:var(--muted2);line-height:1.4}
+.ev-dot{width:8px;height:8px;border-radius:50%;margin-top:4px;flex-shrink:0}
+.ev-dot-grn{background:var(--green)}.ev-dot-acc{background:var(--accent)}.ev-dot-blu{background:var(--blue)}
+
+/* ── MOCKUP: WORKFLOW ── */
+.mock-workflow{background:var(--white);padding:28px;height:360px;overflow:hidden}
+.wf-title{font-family:'Fraunces',serif;font-size:0.88rem;font-weight:700;color:var(--ink);margin-bottom:16px;font-style:italic}
+.wf-nodes{display:flex;flex-direction:column;gap:0}
+.wf-node{display:flex;align-items:flex-start;gap:14px;padding:12px 0;border-bottom:1px solid var(--border)}
+.wf-node:last-child{border-bottom:none}
+.wf-num{width:28px;height:28px;background:var(--ink);color:var(--bg);display:flex;align-items:center;justify-content:center;font-size:0.65rem;font-weight:700;flex-shrink:0;font-family:'DM Sans',sans-serif}
+.wf-num.done{background:var(--green)}
+.wf-num.active{background:var(--accent)}
+.wf-content h4{font-size:0.74rem;font-weight:600;color:var(--ink);margin-bottom:3px}
+.wf-content p{font-size:0.62rem;color:var(--muted2);line-height:1.4}
+.wf-tag{display:inline-block;font-size:0.56rem;padding:2px 7px;margin-top:4px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase}
+.wt-done{background:var(--green-l);color:var(--green)}
+.wt-active{background:var(--accent-l);color:var(--accent)}
+.wt-next{background:var(--border);color:var(--muted)}
+
+/* RESULTS STRIP */
+.results-strip{background:var(--ink);padding:64px}
+.rs-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(247,243,238,0.08)}
+.rs-cell{background:var(--ink);padding:40px 32px;text-align:center}
+.rs-num{font-family:'Fraunces',serif;font-weight:700;font-size:3.5rem;color:var(--bg);line-height:1;margin-bottom:8px}
+.rs-num em{font-style:italic;font-weight:300;color:var(--accent)}
+.rs-label{font-size:0.7rem;color:rgba(247,243,238,0.45);letter-spacing:0.06em;text-transform:uppercase}
+
+/* TESTIMONIALS */
+.testi-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.tc{background:var(--white);border:1px solid var(--border);padding:36px;position:relative}
+.tc-quote{font-family:'Fraunces',serif;font-size:4rem;font-weight:700;color:var(--s2);position:absolute;top:16px;right:24px;line-height:1}
+.tc-text{font-family:'Fraunces',serif;font-size:1rem;font-weight:300;font-style:italic;line-height:1.7;color:var(--ink2);margin-bottom:24px;padding-top:8px}
+.tc-author{display:flex;align-items:center;gap:12px}
+.tc-av{width:40px;height:40px;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;color:var(--white);flex-shrink:0}
+.tc-name{font-size:0.82rem;font-weight:600;color:var(--ink)}
+.tc-role{font-size:0.68rem;color:var(--muted)}
+
+/* CONTACT */
+.contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.contact-intro{font-family:'Fraunces',serif;font-size:1.1rem;font-weight:300;font-style:italic;color:var(--muted);line-height:1.6;margin-bottom:36px}
+.c-items{display:flex;flex-direction:column;gap:0}
+.c-item{display:flex;align-items:center;gap:16px;padding:18px 0;border-bottom:1px solid var(--border);text-decoration:none;transition:padding-left 0.2s}
+.c-item:hover{padding-left:6px}
+.c-icon{width:40px;height:40px;background:var(--s1);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.c-lb{font-size:0.6rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:3px}
+.c-vl{font-size:0.82rem;color:var(--ink);font-weight:500}
+.cform{display:flex;flex-direction:column;gap:14px}
+.cform input,.cform textarea{background:var(--white);border:1px solid var(--border);color:var(--ink);font-family:'DM Sans',sans-serif;font-size:0.85rem;padding:13px 16px;outline:none;transition:border-color 0.2s;width:100%}
+.cform input:focus,.cform textarea:focus{border-color:var(--ink)}
+.cform textarea{resize:vertical;min-height:110px}
+.cform input::placeholder,.cform textarea::placeholder{color:var(--muted2)}
+
+footer{background:var(--ink);padding:28px 64px;display:flex;align-items:center;justify-content:space-between}
+.f-logo{font-family:'Fraunces',serif;font-size:0.95rem;font-style:italic;font-weight:400;color:rgba(247,243,238,0.4)}
+.f-logo em{color:var(--accent);font-style:normal}
+.f-copy{font-size:0.65rem;color:rgba(247,243,238,0.25);letter-spacing:0.04em}
+.f-links{display:flex;gap:20px}
+.f-links a{font-size:0.65rem;color:rgba(247,243,238,0.3);text-decoration:none;letter-spacing:0.04em;text-transform:uppercase;transition:color 0.2s}
+.f-links a:hover{color:var(--bg)}
+
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.65s,transform 0.65s}
+.reveal.in{opacity:1;transform:translateY(0)}
+
+@media(max-width:960px){
+  nav,.hero,section,.results-strip,footer{padding-left:24px;padding-right:24px}
+  .nav-links{display:none}
+  .hero{grid-template-columns:1fr}
+  .hero::before{display:none}
+  .wk{grid-template-columns:1fr}
+  .rs-grid,.testi-grid,.contact-layout{grid-template-columns:1fr}
+  .rs-grid{gap:0;background:none}
+  footer{flex-direction:column;gap:12px;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">David <em>Favour</em></a>
+  <ul class="nav-links">
+    <li><a href="#work">Work</a></li>
+    <li><a href="#results">Results</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Let's Talk</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <div class="hero-kicker"><div class="kicker-line"></div><span class="kicker-text">Partnerships · Operations · Strategy</span></div>
+    <h1>Building systems<br>that <em>actually</em><br>hold together</h1>
+    <p class="hero-sub">— Partnerships &amp; Operations Professional</p>
+    <p class="hero-desc">I coordinate complex multi-stakeholder programmes, build operational infrastructure, and produce the kind of executive reports that actually get read. I've managed 12+ nationwide programmes, partnered with investors and government bodies, and never missed a reporting deadline.</p>
+    <div class="hero-btns">
+      <a href="#work" class="btn-1">View Work</a>
+      <a href="#contact" class="btn-2">Get in Touch</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-card">
+      <div class="hc-header">
+        <h3>At a glance — 2024/25</h3>
+        <div class="hc-dot"></div>
+      </div>
+      <div class="hc-body">
+        <div class="hc-stat">
+          <span class="name">Nationwide Programmes Coordinated</span>
+          <div><div class="val">12+</div><div class="delta delta-g">↑ Active this year</div></div>
+        </div>
+        <div class="hc-stat">
+          <span class="name">Reports Delivered to Executives</span>
+          <div><div class="val">20+</div><div class="delta delta-b">100% on time</div></div>
+        </div>
+        <div class="hc-stat">
+          <span class="name">Reporting Efficiency Improvement</span>
+          <div><div class="val">30%</div><div class="delta delta-g">↑ vs. baseline</div></div>
+        </div>
+        <div class="hc-stat">
+          <span class="name">Public Inquiries Resolved (NYSC)</span>
+          <div><div class="val">200+</div><div class="delta delta-b">Stakeholder liaison</div></div>
+        </div>
+      </div>
+      <div class="hc-footer">
+        <div class="hc-dot" style="flex-shrink:0"></div>
+        <p><strong>Currently available</strong> for Partnerships, Operations, or Programme Manager roles. Remote or Port Harcourt.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WORK -->
+<section id="work" style="background:var(--white)">
+  <div class="sec-kicker">Featured Work</div>
+  <div class="sec-h">Projects that <em>built something real</em></div>
+
+  <div class="work-stack reveal">
+
+    <!-- Row 1: Report Cover + Stakeholder Tracker -->
+    <div class="wk">
+      <div class="wk-mock">
+        <div class="mock-report">
+          <div class="rep-bg-pattern"></div>
+          <div class="rep-content">
+            <div class="rep-top">
+              <div class="rep-brand">YCC National Secretariat</div>
+              <div class="rep-doc">Confidential · Q1 2025</div>
+            </div>
+            <div>
+              <div class="rep-divider"></div>
+              <div class="rep-title">Partnerships &amp;<br>Programme Report</div>
+              <div class="rep-sub">Prepared for Board &amp; Investor Stakeholders</div>
+              <div class="rep-tags">
+                <span class="rep-tag">12 Programs</span>
+                <span class="rep-tag">Nationwide</span>
+                <span class="rep-tag">Quarterly Review</span>
+              </div>
+              <div class="rep-metrics">
+                <div class="rm"><div class="rv">+30%</div><div class="rl">Efficiency</div></div>
+                <div class="rm"><div class="rv">47</div><div class="rl">Stakeholders</div></div>
+                <div class="rm"><div class="rv">₦12M+</div><div class="rl">Programme Budget</div></div>
+              </div>
+            </div>
+            <div class="rep-footer"><span>David Oluomachukwu Favour — Secretariat</span><span>Page 1 of 18</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="wk-info">
+        <span class="tag tag-acc">Executive Reporting</span>
+        <h3>YCC Quarterly Partnership Report</h3>
+        <p>Authored and designed a 18-page quarterly report covering 12+ nationwide youth programmes. Presented to board members, investors, and partner organisations. Included KPI summaries, programme outcomes, budget tracking, and strategic recommendations.</p>
+        <div class="result-row">
+          <span class="res-chip featured">↑ 30% reporting efficiency</span>
+          <span class="res-chip">Used in funding discussions</span>
+          <span class="res-chip">20+ reports delivered</span>
+          <span class="res-chip">Executive-level audience</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row 2: Stakeholder + Event Plan (reversed) -->
+    <div class="wk" style="grid-template-columns:1fr 1fr">
+      <div class="wk-info">
+        <span class="tag tag-grn">Stakeholder Management</span>
+        <h3>47-Stakeholder Coordination System</h3>
+        <p>Built and managed a structured stakeholder database and communication system for YCC's national team. Tracked partner status, investor relationships, government liaisons, and action items — ensuring nothing fell through the cracks across 12 active programmes.</p>
+        <div class="result-row">
+          <span class="res-chip featured">↑ 100% action item tracking</span>
+          <span class="res-chip">Zero missed partner follow-ups</span>
+          <span class="res-chip">Cross-regional coordination</span>
+        </div>
+      </div>
+      <div class="wk-mock">
+        <div class="mock-stakeholder">
+          <div class="sh-header">
+            <div class="sh-title">Partner &amp; Stakeholder Registry</div>
+            <div class="sh-badge">47 Active</div>
+          </div>
+          <div class="sh-cols"><div>Name</div><div>Organisation</div><div>Type</div><div>Last Contact</div></div>
+          <div class="sh-row">
+            <div><div class="sh-name">Engr. Balogun</div><div class="sh-org">FMYSD Abuja</div></div>
+            <div style="font-size:0.62rem;color:var(--muted)">Ministry</div>
+            <div><span class="sh-badge-sm sb-govt">Govt</span></div>
+            <div class="sh-status">✓ Mar 12</div>
+          </div>
+          <div class="sh-row">
+            <div><div class="sh-name">Mrs Adaobi N.</div><div class="sh-org">Nexus Foundation</div></div>
+            <div style="font-size:0.62rem;color:var(--muted)">NGO Partner</div>
+            <div><span class="sh-badge-sm sb-partner">Partner</span></div>
+            <div class="sh-status">✓ Mar 10</div>
+          </div>
+          <div class="sh-row">
+            <div><div class="sh-name">Mr. Chidi O.</div><div class="sh-org">Horizon Capital</div></div>
+            <div style="font-size:0.62rem;color:var(--muted)">Investment</div>
+            <div><span class="sh-badge-sm sb-investor">Investor</span></div>
+            <div class="sh-status">⏳ Follow up</div>
+          </div>
+          <div class="sh-row">
+            <div><div class="sh-name">Dr Emeka A.</div><div class="sh-org">State Liaison</div></div>
+            <div style="font-size:0.62rem;color:var(--muted)">Government</div>
+            <div><span class="sh-badge-sm sb-govt">Govt</span></div>
+            <div class="sh-status">✓ Mar 14</div>
+          </div>
+          <div class="sh-row">
+            <div><div class="sh-name">Funmi B.</div><div class="sh-org">Media Partners</div></div>
+            <div style="font-size:0.62rem;color:var(--muted)">Media</div>
+            <div><span class="sh-badge-sm sb-partner">Partner</span></div>
+            <div class="sh-status">✓ Mar 11</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row 3: Full event + workflow -->
+    <div class="wk">
+      <div class="wk-mock">
+        <div class="mock-event">
+          <div class="ev-title">YCC Lagos Summit — Operations Plan</div>
+          <div class="ev-sub">Event Coordination · 400+ Attendees · March 2025</div>
+          <div class="ev-timeline">
+            <div class="ev-item">
+              <div class="ev-time">6 Wks Out</div>
+              <div class="ev-body">
+                <h4>Venue &amp; Vendor Confirmation</h4>
+                <p>Secured venue, AV suppliers, catering team. All contracts reviewed and filed. <span class="wf-tag wt-done">Done</span></p>
+              </div>
+            </div>
+            <div class="ev-item">
+              <div class="ev-time">4 Wks Out</div>
+              <div class="ev-body">
+                <h4>Stakeholder Invites &amp; Briefings</h4>
+                <p>Sent 47 personalised partner invitations. Drafted speaker briefing documents. <span class="wf-tag wt-done">Done</span></p>
+              </div>
+            </div>
+            <div class="ev-item">
+              <div class="ev-time">2 Wks Out</div>
+              <div class="ev-body">
+                <h4>Programme Deck &amp; Run-of-Show</h4>
+                <p>Built 24-slide partner presentation. Finalised event schedule with 12 speakers. <span class="wf-tag wt-done">Done</span></p>
+              </div>
+            </div>
+            <div class="ev-item">
+              <div class="ev-time">Post-Event</div>
+              <div class="ev-body">
+                <h4>Impact Report &amp; Follow-Up</h4>
+                <p>Delivered 15-page post-event report to all partner organisations within 5 days. <span class="wf-tag wt-done">Done</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="wk-info">
+        <span class="tag tag-blu">Event &amp; Programme Management</span>
+        <h3>YCC National Summit — End-to-End Coordination</h3>
+        <p>Managed full operational lifecycle of a 400+ attendee national youth summit — from venue scouting and vendor management to stakeholder communications, live-day logistics, and post-event impact reporting. Delivered on time and under budget.</p>
+        <div class="result-row">
+          <span class="res-chip featured">↑ 400+ attendees, zero logistics failures</span>
+          <span class="res-chip">12 speakers coordinated</span>
+          <span class="res-chip">Post-event report in 5 days</span>
+          <span class="res-chip">47 partner invitations managed</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row 4: Workflow reversed -->
+    <div class="wk" style="grid-template-columns:1fr 1fr">
+      <div class="wk-info">
+        <span class="tag tag-acc">Process &amp; Workflow Design</span>
+        <h3>Operational Workflow System — YCC Secretariat</h3>
+        <p>Designed a complete internal operations system for a growing national organisation — covering reporting cadences, team documentation protocols, meeting action tracking, and partner communication workflows. Reduced reporting delays by 30%.</p>
+        <div class="result-row">
+          <span class="res-chip featured">↑ 30% efficiency improvement</span>
+          <span class="res-chip">SOPs adopted org-wide</span>
+          <span class="res-chip">Zero missed action items</span>
+        </div>
+      </div>
+      <div class="wk-mock">
+        <div class="mock-workflow">
+          <div class="wf-title">Internal Ops Workflow — YCC Secretariat</div>
+          <div class="wf-nodes">
+            <div class="wf-node">
+              <div class="wf-num done">✓</div>
+              <div class="wf-content"><h4>Weekly Meeting Documentation SOP</h4><p>Standardised agenda, minutes, and action item template. Adopted by all 6 regional teams.</p><span class="wf-tag wt-done">Deployed</span></div>
+            </div>
+            <div class="wf-node">
+              <div class="wf-num done">✓</div>
+              <div class="wf-content"><h4>Reporting Pipeline — 3-Day Cycle</h4><p>Programme → Review → Stakeholder delivery within 3 business days.</p><span class="wf-tag wt-done">Active</span></div>
+            </div>
+            <div class="wf-node">
+              <div class="wf-num active">→</div>
+              <div class="wf-content"><h4>Partner Communication Tracker</h4><p>Centralised log for all partner touchpoints. Auto-flags overdue follow-ups.</p><span class="wf-tag wt-active">In Use</span></div>
+            </div>
+            <div class="wf-node">
+              <div class="wf-num active">→</div>
+              <div class="wf-content"><h4>Event Operations Checklist</h4><p>6-week pre-event checklist with owner assignment and completion tracking.</p><span class="wf-tag wt-active">Live</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- RESULTS STRIP -->
+<div class="results-strip" id="results">
+  <div class="rs-grid">
+    <div class="rs-cell"><div class="rs-num">12<em>+</em></div><div class="rs-label">Nationwide Programmes</div></div>
+    <div class="rs-cell"><div class="rs-num">30<em>%</em></div><div class="rs-label">Reporting Efficiency Gain</div></div>
+    <div class="rs-cell"><div class="rs-num">20<em>+</em></div><div class="rs-label">Executive Reports Authored</div></div>
+    <div class="rs-cell"><div class="rs-num">47</div><div class="rs-label">Active Stakeholders Managed</div></div>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials" style="background:var(--s1)">
+  <div class="sec-kicker">What People Say</div>
+  <div class="sec-h">Trusted by <em>the people who matter</em></div>
+  <div class="testi-grid reveal">
+    <div class="tc">
+      <div class="tc-quote">"</div>
+      <div class="tc-text">David doesn't just complete tasks — he builds systems. Within weeks of joining our team, our reporting process was cleaner, faster, and our partners were getting information before they had to ask for it.</div>
+      <div class="tc-author">
+        <div class="tc-av" style="background:var(--accent)">K</div>
+        <div><div class="tc-name">Kelechi A.</div><div class="tc-role">National Director, Youth Creative Conference · Abuja</div></div>
+      </div>
+    </div>
+    <div class="tc">
+      <div class="tc-quote">"</div>
+      <div class="tc-text">The quarterly report David prepared was the most professional document our organisation had produced. Our investors commented on it specifically. It opened conversations we'd been trying to have for a year.</div>
+      <div class="tc-author">
+        <div class="tc-av" style="background:var(--green)">A</div>
+        <div><div class="tc-name">Amara O.</div><div class="tc-role">Partnerships Lead, YCC Port Harcourt</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" style="background:var(--white)">
+  <div class="sec-kicker">Get in Touch</div>
+  <div class="sec-h">Open to the <em>right opportunity</em></div>
+  <div class="contact-layout reveal">
+    <div>
+      <p class="contact-intro">I'm available for Partnerships Manager, Programme Coordinator, or Operations Lead roles — remote or in Port Harcourt. If you're building something that needs someone to hold it all together, that's me.</p>
+      <div class="c-items">
+        <a href="mailto:david.oluoma.favour@gmail.com" class="c-item">
+          <div class="c-icon">✉</div><div><div class="c-lb">Email</div><div class="c-vl">david.oluoma.favour@gmail.com</div></div>
+        </a>
+        <a href="tel:+2349036482785" class="c-item">
+          <div class="c-icon">📱</div><div><div class="c-lb">WhatsApp / Call</div><div class="c-vl">+234 903 648 2785</div></div>
+        </a>
+        <a href="https://linkedin.com/in/oluoma-david-679030215" class="c-item" target="_blank">
+          <div class="c-icon" style="font-size:0.72rem;font-weight:700;color:var(--blue)">in</div><div><div class="c-lb">LinkedIn</div><div class="c-vl">oluoma-david-679030215</div></div>
+        </a>
+      </div>
+    </div>
+    <form class="cform" onsubmit="handleForm(event)">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Email Address" required>
+      <input type="text" placeholder="Organisation / Role">
+      <textarea placeholder="Tell me about the opportunity…"></textarea>
+      <button type="submit" class="btn-1" id="fb" style="border:none;cursor:pointer;align-self:flex-start">Send Message →</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="f-logo">David Oluomachukwu <em>Favour</em> — Ops &amp; Partnerships</div>
+  <div class="f-copy">© 2025 · Available for work · Port Harcourt</div>
+  <div class="f-links">
+    <a href="david_portfolio_va.html">VA Portfolio</a>
+    <a href="david_portfolio_data.html">Data Portfolio</a>
+  </div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('in'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+function handleForm(e) {
+  e.preventDefault();
+  const btn = document.getElementById('fb');
+  btn.textContent = 'Sent ✓';
+  btn.style.background = '#2a6b4a';
+  setTimeout(() => { btn.textContent = 'Send Message →'; btn.style.background = ''; e.target.reset(); }, 3000);
+}
+</script>
+</body>
+</html>

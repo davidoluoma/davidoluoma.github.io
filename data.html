@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>David Favour — Data Analyst Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#060810;
+  --s1:#0a0d18;
+  --s2:#0f1220;
+  --s3:#151828;
+  --border:#1e2340;
+  --border2:#252b48;
+  --text:#e8ecff;
+  --muted:#4a5280;
+  --muted2:#7880a8;
+  --accent:#4f8aff;
+  --accent2:#00e5a0;
+  --accent3:#ff6b6b;
+  --yellow:#ffd166;
+  --glow:rgba(79,138,255,0.15);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'IBM Plex Mono',monospace;font-weight:400;overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 56px;background:rgba(6,8,16,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:0.88rem;letter-spacing:0.06em;color:var(--text);text-decoration:none}
+.nav-logo span{color:var(--accent)}
+.nav-pill{display:flex;align-items:center;gap:6px;background:rgba(0,229,160,0.08);border:1px solid rgba(0,229,160,0.2);color:var(--accent2);font-size:0.65rem;font-weight:700;letter-spacing:0.08em;padding:7px 14px;text-transform:uppercase}
+.nav-pill::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--accent2);animation:ping 2s infinite}
+@keyframes ping{0%,100%{opacity:1}50%{opacity:0.3}}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-size:0.68rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted2);text-decoration:none;transition:color 0.2s}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{background:var(--accent);color:#000;font-family:'Syne',sans-serif;font-weight:700;font-size:0.65rem;padding:9px 18px;letter-spacing:0.05em;text-transform:uppercase;text-decoration:none;transition:opacity 0.2s}
+.nav-cta:hover{opacity:0.85}
+
+/* HERO */
+.hero{min-height:100vh;padding:100px 56px 80px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;border-bottom:1px solid var(--border)}
+.hero-canvas{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.hero-canvas svg{position:absolute;top:-100px;right:-100px;opacity:0.08}
+.hero-glow{position:absolute;top:50%;left:30%;transform:translate(-50%,-50%);width:800px;height:800px;background:radial-gradient(ellipse,rgba(79,138,255,0.06) 0%,transparent 65%);pointer-events:none}
+.hero-eyebrow{font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:20px;font-weight:700}
+.hero h1{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(3.2rem,6.5vw,6rem);line-height:1;letter-spacing:-0.02em;margin-bottom:20px}
+.hero h1 .l2{color:var(--accent);display:block}
+.hero h1 .l3{color:var(--muted);font-weight:400;display:block;font-size:0.6em}
+.hero-desc{font-size:0.82rem;color:var(--muted2);line-height:1.8;max-width:520px;margin-bottom:44px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.btn-p{background:var(--accent);color:#000;font-family:'Syne',sans-serif;font-weight:700;font-size:0.72rem;letter-spacing:0.05em;text-transform:uppercase;padding:13px 26px;text-decoration:none;border:none;cursor:pointer;transition:opacity 0.2s;display:inline-block}
+.btn-p:hover{opacity:0.85}
+.btn-s{background:transparent;color:var(--muted2);font-family:'IBM Plex Mono',monospace;font-size:0.72rem;letter-spacing:0.05em;padding:13px 26px;text-decoration:none;border:1px solid var(--border2);transition:all 0.2s;display:inline-block}
+.btn-s:hover{color:var(--text);border-color:var(--muted2)}
+.hero-metrics{display:flex;gap:0;margin-top:72px;padding-top:40px;border-top:1px solid var(--border)}
+.hm{padding-right:48px;border-right:1px solid var(--border);margin-right:48px}
+.hm:last-child{border-right:none}
+.hm .v{font-family:'Syne',sans-serif;font-weight:800;font-size:2.5rem;color:var(--accent2);line-height:1}
+.hm .l{font-size:0.6rem;color:var(--muted);letter-spacing:0.07em;text-transform:uppercase;margin-top:6px}
+
+/* SECTION */
+section{padding:96px 56px;border-bottom:1px solid var(--border)}
+.sec-eyebrow{font-size:0.62rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent2);margin-bottom:12px}
+.sec-h{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(1.8rem,3.5vw,3rem);line-height:1.08;margin-bottom:48px}
+.sec-h em{color:var(--muted);font-style:italic;font-weight:400}
+
+/* PROJECT CARDS */
+.proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--border)}
+.proj-card{background:var(--s1);overflow:hidden}
+.proj-card.tall{grid-row:span 2}
+.proj-mockup{width:100%;border-bottom:1px solid var(--border);overflow:hidden;position:relative}
+.proj-info{padding:28px 32px}
+.proj-info h3{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;margin-bottom:8px;color:var(--text)}
+.proj-info p{font-size:0.75rem;color:var(--muted2);line-height:1.7;margin-bottom:14px}
+.proj-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.ptag{background:var(--s3);border:1px solid var(--border2);color:var(--muted2);font-size:0.6rem;padding:3px 10px;letter-spacing:0.04em}
+.proj-outcome{font-size:0.72rem;font-weight:700;color:var(--accent2);font-family:'IBM Plex Mono',monospace}
+.proj-outcome::before{content:'> '}
+
+/* ── MOCKUP: KPI DASHBOARD ── */
+.mockup-kpi{background:#07091a;padding:20px;font-family:'IBM Plex Mono',monospace;height:280px;overflow:hidden}
+.kpi-bar{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.kpi-bar-title{font-size:0.68rem;font-weight:700;color:var(--text);letter-spacing:0.05em;text-transform:uppercase}
+.kpi-period-sel{font-size:0.58rem;color:var(--muted2);background:var(--s3);border:1px solid var(--border);padding:3px 10px}
+.kpi-kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px}
+.k-card{background:var(--s2);border:1px solid var(--border);padding:12px}
+.k-card .kval{font-family:'Syne',sans-serif;font-weight:800;font-size:1.4rem;line-height:1;margin-bottom:4px}
+.k-card .klbl{font-size:0.52rem;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:6px}
+.k-card .kdelta{font-size:0.6rem;font-weight:700}
+.delta-up{color:var(--accent2)}.delta-dn{color:var(--accent3)}
+.kpi-body{display:grid;grid-template-columns:2.2fr 1fr;gap:8px}
+.kpi-chart-box{background:var(--s2);border:1px solid var(--border);padding:14px}
+.kpi-chart-head{font-size:0.58rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:10px}
+.bar-chart{display:flex;align-items:flex-end;gap:5px;height:64px}
+.bc-col{display:flex;flex-direction:column;align-items:center;gap:3px;flex:1}
+.bc-bar{width:100%;border-radius:2px 2px 0 0;background:linear-gradient(0deg,var(--accent),rgba(79,138,255,0.3));transition:height 0.8s ease}
+.bc-lbl{font-size:0.45rem;color:var(--muted);letter-spacing:0.03em}
+.kpi-table{background:var(--s2);border:1px solid var(--border);padding:12px}
+.kpi-table-title{font-size:0.58rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:8px}
+.kt-row{display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid var(--border);font-size:0.58rem}
+.kt-row:last-child{border-bottom:none}
+.kt-row .n{color:var(--muted2)}
+.kt-row .v{color:var(--accent);font-weight:700}
+.kt-bar{width:50px;height:3px;background:var(--s3);border-radius:2px;margin-top:2px}
+.kt-bar-f{height:100%;background:var(--accent);border-radius:2px}
+
+/* ── MOCKUP: REPORT ── */
+.mockup-report{background:#07091a;padding:0;height:280px;overflow:hidden;position:relative}
+.report-cover{width:100%;height:100%;background:linear-gradient(145deg,#080d1f 0%,#0c1226 60%,#060810 100%);display:flex;flex-direction:column;justify-content:space-between;padding:28px}
+.rc-top{display:flex;justify-content:space-between;align-items:flex-start}
+.rc-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:0.7rem;color:var(--accent);letter-spacing:0.08em;text-transform:uppercase}
+.rc-date{font-size:0.55rem;color:var(--muted);letter-spacing:0.06em}
+.rc-divider{height:1px;background:linear-gradient(90deg,var(--accent),transparent);margin:16px 0}
+.rc-title{font-family:'Syne',sans-serif;font-weight:800;font-size:1.4rem;color:var(--text);line-height:1.1;margin-bottom:6px}
+.rc-subtitle{font-size:0.62rem;color:var(--muted2);letter-spacing:0.04em}
+.rc-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.rc-metric{background:rgba(79,138,255,0.06);border:1px solid rgba(79,138,255,0.15);padding:10px}
+.rc-metric .rv{font-family:'Syne',sans-serif;font-weight:800;font-size:1.1rem;color:var(--accent2);line-height:1}
+.rc-metric .rl{font-size:0.5rem;color:var(--muted);margin-top:4px;letter-spacing:0.05em;text-transform:uppercase}
+.rc-footer{font-size:0.55rem;color:var(--muted);display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border);padding-top:10px}
+
+/* ── MOCKUP: ENGAGEMENT ANALYSIS ── */
+.mockup-engagement{background:#07091a;padding:20px;height:280px;overflow:hidden;font-family:'IBM Plex Mono',monospace}
+.eng-title{font-size:0.65rem;font-weight:700;color:var(--text);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:14px}
+.eng-top{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
+.eng-metric{background:var(--s2);border:1px solid var(--border);padding:10px 14px}
+.eng-metric .ev{font-family:'Syne',sans-serif;font-weight:800;font-size:1.3rem;color:var(--yellow);line-height:1}
+.eng-metric .el{font-size:0.52rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;margin-top:3px}
+.eng-chart{background:var(--s2);border:1px solid var(--border);padding:12px}
+.eng-chart-title{font-size:0.55rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:10px}
+.scatter{display:flex;align-items:flex-end;gap:3px;height:80px;position:relative}
+.s-bar{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px}
+.s-dot{width:8px;height:8px;border-radius:50%;background:var(--yellow);opacity:0.7;margin-bottom:2px}
+.s-line{width:2px;border-radius:1px;background:linear-gradient(0deg,rgba(255,209,102,0.4),transparent)}
+.s-lbl{font-size:0.42rem;color:var(--muted);text-transform:uppercase}
+.eng-insight{background:rgba(0,229,160,0.05);border:1px solid rgba(0,229,160,0.15);padding:10px 14px;margin-top:8px;font-size:0.6rem;color:var(--accent2);line-height:1.5}
+.eng-insight strong{font-weight:700;color:var(--accent2)}
+
+/* ── MOCKUP: SQL / DATA ── */
+.mockup-sql{background:#050712;padding:20px;height:280px;overflow:hidden;font-family:'IBM Plex Mono',monospace}
+.sql-tabs{display:flex;gap:0;margin-bottom:12px;border-bottom:1px solid var(--border)}
+.sql-tab{font-size:0.6rem;padding:6px 14px;color:var(--muted);border-bottom:2px solid transparent;cursor:pointer}
+.sql-tab.active{color:var(--accent);border-bottom-color:var(--accent)}
+.sql-editor{background:var(--s1);border:1px solid var(--border);padding:14px;font-size:0.62rem;line-height:1.7;margin-bottom:10px}
+.sql-kw{color:#ff79c6;font-weight:700}
+.sql-fn{color:var(--accent)}
+.sql-str{color:var(--accent2)}
+.sql-cmt{color:var(--muted)}
+.sql-result{background:var(--s2);border:1px solid var(--border);overflow:hidden}
+.sql-result-head{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:0;background:var(--s3);font-size:0.57rem;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase}
+.sql-result-head div,.sql-result-row div{padding:6px 10px;border-right:1px solid var(--border)}
+.sql-result-row{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;font-size:0.58px;border-top:1px solid var(--border)}
+.sql-result-row{font-size:0.6rem}
+.sql-result-row:hover{background:var(--s3)}
+.sql-val-green{color:var(--accent2);font-weight:700}
+.sql-val-blue{color:var(--accent)}
+.sql-val-yellow{color:var(--yellow)}
+
+/* SKILLS */
+.skills-section{background:var(--s1)}
+.skills-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.skill-group{background:var(--s2);border:1px solid var(--border);padding:24px}
+.sg-label{font-size:0.6rem;font-weight:700;color:var(--accent2);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:16px}
+.skill-item{display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border);font-size:0.68rem}
+.skill-item:last-child{border-bottom:none}
+.skill-item .name{color:var(--muted2)}
+.skill-item .level{font-size:0.55rem;font-weight:700;letter-spacing:0.05em;padding:2px 7px;text-transform:uppercase}
+.lv-strong{background:rgba(0,229,160,0.1);color:var(--accent2);border:1px solid rgba(0,229,160,0.2)}
+.lv-good{background:rgba(79,138,255,0.1);color:var(--accent);border:1px solid rgba(79,138,255,0.2)}
+.lv-basic{background:rgba(255,209,102,0.1);color:var(--yellow);border:1px solid rgba(255,209,102,0.2)}
+
+/* CONTACT */
+.contact-row{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.contact-p{font-size:0.78rem;color:var(--muted2);line-height:1.85;margin-bottom:32px}
+.c-links{display:flex;flex-direction:column;gap:0}
+.c-link{display:flex;align-items:center;gap:16px;padding:16px 0;border-bottom:1px solid var(--border);text-decoration:none;transition:padding-left 0.2s;font-size:0.75rem}
+.c-link:hover{padding-left:8px}
+.c-link .icon{width:36px;height:36px;background:var(--s3);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-size:0.9rem;flex-shrink:0;color:var(--accent)}
+.c-link .lb{font-size:0.6rem;color:var(--muted);letter-spacing:0.07em;text-transform:uppercase;margin-bottom:3px}
+.c-link .vl{color:var(--text);font-size:0.78rem}
+.cform{display:flex;flex-direction:column;gap:12px}
+.cform input,.cform textarea{background:var(--s2);border:1px solid var(--border);color:var(--text);font-family:'IBM Plex Mono',monospace;font-size:0.78rem;padding:13px 16px;outline:none;transition:border-color 0.2s;width:100%}
+.cform input:focus,.cform textarea:focus{border-color:var(--accent)}
+.cform textarea{resize:vertical;min-height:100px}
+.cform input::placeholder,.cform textarea::placeholder{color:var(--muted)}
+
+footer{background:var(--bg);padding:28px 56px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--border)}
+.f-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:0.82rem;letter-spacing:0.06em;color:var(--muted)}
+.f-logo span{color:var(--accent)}
+.f-copy{font-size:0.6rem;color:var(--muted);letter-spacing:0.04em}
+.f-nav{display:flex;gap:20px}
+.f-nav a{font-size:0.62rem;color:var(--muted);text-decoration:none;letter-spacing:0.04em;text-transform:uppercase;transition:color 0.2s}
+.f-nav a:hover{color:var(--text)}
+
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.65s,transform 0.65s}
+.reveal.in{opacity:1;transform:translateY(0)}
+
+@media(max-width:960px){
+  nav,.hero,section,footer{padding-left:24px;padding-right:24px}
+  .nav-links{display:none}
+  .hero h1{font-size:3rem}
+  .proj-grid,.skills-grid,.contact-row{grid-template-columns:1fr}
+  .proj-card.tall{grid-row:auto}
+  .kpi-kpi-row{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">David<span>.</span>Data</a>
+  <ul class="nav-links">
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div style="display:flex;align-items:center;gap:12px">
+    <div class="nav-pill">Open to Work</div>
+    <a href="#contact" class="nav-cta">Hire Me</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-canvas">
+    <div class="hero-glow"></div>
+    <svg width="600" height="600" viewBox="0 0 600 600"><circle cx="300" cy="300" r="250" fill="none" stroke="#4f8aff" stroke-width="1"/><circle cx="300" cy="300" r="180" fill="none" stroke="#4f8aff" stroke-width="0.5"/><circle cx="300" cy="300" r="110" fill="none" stroke="#4f8aff" stroke-width="0.5"/><line x1="50" y1="300" x2="550" y2="300" stroke="#4f8aff" stroke-width="0.5"/><line x1="300" y1="50" x2="300" y2="550" stroke="#4f8aff" stroke-width="0.5"/></svg>
+  </div>
+  <div class="hero-eyebrow">// Data Analyst · Google Certified · BSc Computer Science</div>
+  <h1>
+    Data<br>
+    <span class="l2">Analyst</span>
+    <span class="l3">— turning numbers into decisions</span>
+  </h1>
+  <p class="hero-desc">I clean messy data, build dashboards that people actually use, and write reports that answer the question before it's asked. Google Data Analytics certified with proven results across multiple industries.</p>
+  <div class="hero-actions">
+    <a href="#projects" class="btn-p">View Projects</a>
+    <a href="#contact" class="btn-s">// Contact Me</a>
+  </div>
+  <div class="hero-metrics">
+    <div class="hm"><div class="v">82%</div><div class="l">ML Model Accuracy</div></div>
+    <div class="hm"><div class="v">20%</div><div class="l">Campaign Targeting Improvement</div></div>
+    <div class="hm"><div class="v">30%</div><div class="l">Reporting Efficiency Gained</div></div>
+    <div class="hm"><div class="v">300+</div><div class="l">Daily Records Processed</div></div>
+  </div>
+</div>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="sec-eyebrow">// featured_projects</div>
+  <div class="sec-h">Work that <em>shows the results</em></div>
+
+  <div class="proj-grid reveal">
+
+    <!-- KPI Dashboard -->
+    <div class="proj-card tall">
+      <div class="proj-mockup">
+        <div class="mockup-kpi">
+          <div class="kpi-bar">
+            <span class="kpi-bar-title">Performance Dashboard — YCC Programs</span>
+            <span class="kpi-period-sel">Q1 2025</span>
+          </div>
+          <div class="kpi-kpi-row">
+            <div class="k-card"><div class="klbl">Programs Active</div><div class="kval" style="color:var(--accent)">12</div><div class="kdelta delta-up">↑ 3 from Q4</div></div>
+            <div class="k-card"><div class="klbl">Reporting Efficiency</div><div class="kval" style="color:var(--accent2)">+30%</div><div class="kdelta delta-up">↑ vs baseline</div></div>
+            <div class="k-card"><div class="klbl">Reports Delivered</div><div class="kval" style="color:var(--yellow)">20+</div><div class="kdelta delta-up">↑ 100% on time</div></div>
+            <div class="k-card"><div class="klbl">Stakeholders</div><div class="kval" style="color:var(--accent3)">47</div><div class="kdelta delta-up">↑ Active</div></div>
+          </div>
+          <div class="kpi-body">
+            <div class="kpi-chart-box">
+              <div class="kpi-chart-head">Monthly Program Reports Delivered</div>
+              <div class="bar-chart">
+                <div class="bc-col"><div class="bc-bar" style="height:55%"></div><div class="bc-lbl">Oct</div></div>
+                <div class="bc-col"><div class="bc-bar" style="height:65%"></div><div class="bc-lbl">Nov</div></div>
+                <div class="bc-col"><div class="bc-bar" style="height:72%"></div><div class="bc-lbl">Dec</div></div>
+                <div class="bc-col"><div class="bc-bar" style="height:80%"></div><div class="bc-lbl">Jan</div></div>
+                <div class="bc-col"><div class="bc-bar" style="height:88%"></div><div class="bc-lbl">Feb</div></div>
+                <div class="bc-col"><div class="bc-bar" style="height:100%"></div><div class="bc-lbl">Mar</div></div>
+              </div>
+            </div>
+            <div class="kpi-table">
+              <div class="kpi-table-title">KPI Tracker</div>
+              <div class="kt-row"><div><div class="n">Attendance</div><div class="kt-bar"><div class="kt-bar-f" style="width:92%"></div></div></div><div class="v">92%</div></div>
+              <div class="kt-row"><div><div class="n">Completion</div><div class="kt-bar"><div class="kt-bar-f" style="width:100%"></div></div></div><div class="v">100%</div></div>
+              <div class="kt-row"><div><div class="n">Partner SLA</div><div class="kt-bar"><div class="kt-bar-f" style="width:97%"></div></div></div><div class="v">97%</div></div>
+              <div class="kt-row"><div><div class="n">Budget Use</div><div class="kt-bar"><div class="kt-bar-f" style="width:84%"></div></div></div><div class="v">84%</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="proj-info">
+        <h3>KPI Dashboard — YCC National Programmes</h3>
+        <p>Designed and maintained an Excel-based KPI tracking and reporting system for 12+ nationwide programmes. Enabled leadership to make data-driven decisions through visual dashboards and structured weekly summaries.</p>
+        <div class="proj-tags"><span class="ptag">Excel</span><span class="ptag">KPI Design</span><span class="ptag">Stakeholder Reporting</span><span class="ptag">Data Visualisation</span></div>
+        <div class="proj-outcome">30% faster reporting cycle · 100% on-time delivery</div>
+      </div>
+    </div>
+
+    <!-- Right column -->
+    <div style="display:flex;flex-direction:column;gap:2px">
+
+      <!-- Report Cover -->
+      <div class="proj-card">
+        <div class="proj-mockup">
+          <div class="mockup-report">
+            <div class="report-cover">
+              <div class="rc-top">
+                <div class="rc-logo">David Favour Analytics</div>
+                <div class="rc-date">March 2025 — Monthly Report</div>
+              </div>
+              <div>
+                <div class="rc-divider"></div>
+                <div class="rc-title">Q1 Engagement<br>Performance Report</div>
+                <div class="rc-subtitle">Prepared for Executive Stakeholders · YCC National Programs</div>
+              </div>
+              <div class="rc-metrics">
+                <div class="rc-metric"><div class="rv">+30%</div><div class="rl">Efficiency Gain</div></div>
+                <div class="rc-metric"><div class="rv">12+</div><div class="rl">Programs Tracked</div></div>
+                <div class="rc-metric"><div class="rv">100%</div><div class="rl">On-Time Rate</div></div>
+              </div>
+              <div class="rc-footer"><span>Confidential — Internal Use Only</span><span>Page 1 of 14</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="proj-info">
+          <h3>Executive Programme Report — YCC</h3>
+          <p>Produced 20+ structured performance reports for executive stakeholders and partner organisations. Reports included KPI summaries, trend analysis, and actionable recommendations.</p>
+          <div class="proj-tags"><span class="ptag">Report Writing</span><span class="ptag">Data Storytelling</span><span class="ptag">Excel</span></div>
+          <div class="proj-outcome">20+ reports delivered · Used in funding discussions</div>
+        </div>
+      </div>
+
+      <!-- Engagement Analysis -->
+      <div class="proj-card">
+        <div class="proj-mockup">
+          <div class="mockup-engagement">
+            <div class="eng-title">Sales &amp; Engagement Analysis — Campaign Data</div>
+            <div class="eng-top">
+              <div class="eng-metric"><div class="ev">+20%</div><div class="el">Targeting Improvement</div></div>
+              <div class="eng-metric"><div class="ev" style="color:var(--accent)">4.2x</div><div class="el">ROI Identified</div></div>
+            </div>
+            <div class="eng-chart">
+              <div class="eng-chart-title">Engagement Rate by Content Type — Weekly</div>
+              <div class="scatter">
+                <div class="s-bar"><div class="s-line" style="height:30px"></div><div class="s-dot" style="opacity:0.5"></div><div class="s-lbl">W1</div></div>
+                <div class="s-bar"><div class="s-line" style="height:45px"></div><div class="s-dot"></div><div class="s-lbl">W2</div></div>
+                <div class="s-bar"><div class="s-line" style="height:35px"></div><div class="s-dot" style="opacity:0.6"></div><div class="s-lbl">W3</div></div>
+                <div class="s-bar"><div class="s-line" style="height:55px"></div><div class="s-dot"></div><div class="s-lbl">W4</div></div>
+                <div class="s-bar"><div class="s-line" style="height:50px"></div><div class="s-dot"></div><div class="s-lbl">W5</div></div>
+                <div class="s-bar"><div class="s-line" style="height:65px"></div><div class="s-dot"></div><div class="s-lbl">W6</div></div>
+                <div class="s-bar"><div class="s-line" style="height:70px"></div><div class="s-dot"></div><div class="s-lbl">W7</div></div>
+                <div class="s-bar"><div class="s-line" style="height:78px"></div><div class="s-dot"></div><div class="s-lbl">W8</div></div>
+              </div>
+            </div>
+            <div class="eng-insight"><strong>Key Finding:</strong> Video content outperformed static posts by 3.2x. Recommended shift in content mix → 20% campaign targeting improvement achieved.</div>
+          </div>
+        </div>
+        <div class="proj-info">
+          <h3>Sales &amp; Engagement Analysis — Self-Driven</h3>
+          <p>Independently cleaned and analysed large engagement datasets. Identified performance trends by content type, time slot, and audience segment. Delivered a structured insights report with strategic recommendations.</p>
+          <div class="proj-tags"><span class="ptag">Data Cleaning</span><span class="ptag">Excel Analysis</span><span class="ptag">Trend Identification</span><span class="ptag">Insight Reporting</span></div>
+          <div class="proj-outcome">20% improvement in campaign targeting identified</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SQL / Bottom wide -->
+    <div class="proj-card" style="grid-column:span 2">
+      <div class="proj-mockup" style="aspect-ratio:auto;height:auto">
+        <div class="mockup-sql">
+          <div class="sql-tabs">
+            <div class="sql-tab active">query_01.sql</div>
+            <div class="sql-tab">clean_data.py</div>
+            <div class="sql-tab">pivot_report.xlsx</div>
+          </div>
+          <div class="sql-editor">
+            <span class="sql-cmt">-- Customer support ticket analysis — Ratedby10 (300+ daily records)</span><br>
+            <span class="sql-kw">SELECT</span>&nbsp;<br>
+            &nbsp;&nbsp;issue_category,<br>
+            &nbsp;&nbsp;<span class="sql-fn">COUNT</span>(*) <span class="sql-kw">AS</span> ticket_count,<br>
+            &nbsp;&nbsp;<span class="sql-fn">AVG</span>(resolution_time_hrs) <span class="sql-kw">AS</span> avg_resolution,<br>
+            &nbsp;&nbsp;<span class="sql-fn">ROUND</span>(<span class="sql-fn">COUNT</span>(*) * 100.0 / <span class="sql-fn">SUM</span>(<span class="sql-fn">COUNT</span>(*)) <span class="sql-kw">OVER</span>(), 1) <span class="sql-kw">AS</span> pct_share<br>
+            <span class="sql-kw">FROM</span> support_tickets<br>
+            <span class="sql-kw">WHERE</span> created_date <span class="sql-kw">BETWEEN</span> <span class="sql-str">'2024-01-01'</span> <span class="sql-kw">AND</span> <span class="sql-str">'2024-04-30'</span><br>
+            <span class="sql-kw">GROUP BY</span> issue_category<br>
+            <span class="sql-kw">ORDER BY</span> ticket_count <span class="sql-kw">DESC</span>;
+          </div>
+          <div class="sql-result">
+            <div class="sql-result-head"><div>issue_category</div><div>ticket_count</div><div>avg_resolution</div><div>pct_share</div></div>
+            <div class="sql-result-row"><div>Account Access</div><div class="sql-val-green">2,847</div><div class="sql-val-blue">1.2 hrs</div><div class="sql-val-yellow">34.1%</div></div>
+            <div class="sql-result-row"><div>Payment Issues</div><div class="sql-val-green">1,932</div><div class="sql-val-blue">2.8 hrs</div><div class="sql-val-yellow">23.2%</div></div>
+            <div class="sql-result-row"><div>Ad Setup Help</div><div class="sql-val-green">1,644</div><div class="sql-val-blue">0.9 hrs</div><div class="sql-val-yellow">19.7%</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="proj-info">
+        <h3>Support Ticket Data Analysis — Ratedby10</h3>
+        <p>Applied SQL-style analysis to 8,300+ support tickets across a 4-month period. Identified top issue categories, resolution time patterns, and SLA bottlenecks. Findings used to redesign the escalation matrix, cutting average resolution time by 20%.</p>
+        <div class="proj-tags"><span class="ptag">SQL</span><span class="ptag">Excel</span><span class="ptag">Pattern Analysis</span><span class="ptag">Process Improvement</span><span class="ptag">KPI Reporting</span></div>
+        <div class="proj-outcome">20% resolution time reduction · 100% SLA compliance achieved</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="skills-section">
+  <div class="sec-eyebrow">// technical_skills</div>
+  <div class="sec-h">Tools &amp; <em>technologies</em></div>
+  <div class="skills-grid reveal">
+    <div class="skill-group">
+      <div class="sg-label">Data & Analysis</div>
+      <div class="skill-item"><span class="name">Microsoft Excel</span><span class="level lv-strong">Strong</span></div>
+      <div class="skill-item"><span class="name">Pivot Tables & Charts</span><span class="level lv-strong">Strong</span></div>
+      <div class="skill-item"><span class="name">Data Cleaning</span><span class="level lv-strong">Strong</span></div>
+      <div class="skill-item"><span class="name">Basic SQL</span><span class="level lv-good">Good</span></div>
+      <div class="skill-item"><span class="name">Statistical Analysis</span><span class="level lv-good">Good</span></div>
+    </div>
+    <div class="skill-group">
+      <div class="sg-label">Reporting</div>
+      <div class="skill-item"><span class="name">KPI Dashboard Design</span><span class="level lv-strong">Strong</span></div>
+      <div class="skill-item"><span class="name">Executive Reports</span><span class="level lv-strong">Strong</span></div>
+      <div class="skill-item"><span class="name">Data Storytelling</span><span class="level lv-strong">Strong</span></div>
+      <div class="skill-item"><span class="name">Google Sheets</span><span class="level lv-good">Good</span></div>
+      <div class="skill-item"><span class="name">Canva Dashboards</span><span class="level lv-good">Good</span></div>
+    </div>
+    <div class="skill-group">
+      <div class="sg-label">Process & Ops</div>
+      <div class="skill-item"><span class="name">Workflow Optimisation</span><span class="level lv-strong">Strong</span></div>
+      <div class="skill-item"><span class="name">SLA Tracking</span><span class="level lv-strong">Strong</span></div>
+      <div class="skill-item"><span class="name">Process Documentation</span><span class="level lv-strong">Strong</span></div>
+      <div class="skill-item"><span class="name">Stakeholder Reporting</span><span class="level lv-strong">Strong</span></div>
+      <div class="skill-item"><span class="name">Python (basic ML)</span><span class="level lv-basic">Learning</span></div>
+    </div>
+    <div class="skill-group">
+      <div class="sg-label">Certifications</div>
+      <div class="skill-item"><span class="name">Google Data Analytics</span><span class="level lv-strong">Certified</span></div>
+      <div class="skill-item"><span class="name">Business Analysis</span><span class="level lv-strong">Certified</span></div>
+      <div class="skill-item"><span class="name">ALX Virtual Assistant</span><span class="level lv-strong">Certified</span></div>
+      <div class="skill-item"><span class="name">CPN Nigeria</span><span class="level lv-strong">Member</span></div>
+      <div class="skill-item"><span class="name">BSc Computer Science</span><span class="level lv-strong">2:1</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="sec-eyebrow">// contact</div>
+  <div class="sec-h">Open for <em>opportunities</em></div>
+  <div class="contact-row reveal">
+    <div>
+      <p class="contact-p">Seeking data analyst roles, reporting contracts, or freelance analysis work. Remote-friendly. Based in Port Harcourt. Available immediately.</p>
+      <div class="c-links">
+        <a href="mailto:david.oluoma.favour@gmail.com" class="c-link">
+          <div class="icon">✉</div><div><div class="lb">Email</div><div class="vl">david.oluoma.favour@gmail.com</div></div>
+        </a>
+        <a href="tel:+2349036482785" class="c-link">
+          <div class="icon">📱</div><div><div class="lb">WhatsApp / Call</div><div class="vl">+234 903 648 2785</div></div>
+        </a>
+        <a href="https://linkedin.com/in/oluoma-david-679030215" class="c-link" target="_blank">
+          <div class="icon" style="font-size:0.7rem;font-weight:800;color:var(--accent)">in</div><div><div class="lb">LinkedIn</div><div class="vl">oluoma-david-679030215</div></div>
+        </a>
+      </div>
+    </div>
+    <form class="cform" onsubmit="handleForm(event)">
+      <input type="text" placeholder="Name" required>
+      <input type="email" placeholder="Email" required>
+      <input type="text" placeholder="Company / Role">
+      <textarea placeholder="Tell me about the opportunity…"></textarea>
+      <button type="submit" class="btn-p" id="fb" style="border:none;cursor:pointer;align-self:flex-start">Send →</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="f-logo">David<span>.</span>Data — Analyst Portfolio</div>
+  <div class="f-copy">© 2025 · Google Data Analytics Certified · Available Now</div>
+  <div class="f-nav">
+    <a href="david_portfolio_va.html">VA Portfolio</a>
+    <a href="david_portfolio_ops.html">Ops Portfolio</a>
+  </div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('in'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+function handleForm(e) {
+  e.preventDefault();
+  const btn = document.getElementById('fb');
+  btn.textContent = 'Sent ✓';
+  btn.style.background = '#00e5a0';
+  setTimeout(() => { btn.textContent = 'Send →'; btn.style.background = ''; e.target.reset(); }, 3000);
+}
+
+// Animate bar chart on scroll
+const bObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting) {
+      e.target.querySelectorAll('.bc-bar').forEach((b,i) => {
+        const h = b.style.height;
+        b.style.height = '0';
+        setTimeout(() => b.style.height = h, 150 + i * 80);
+      });
+    }
+  });
+},{threshold:0.3});
+document.querySelectorAll('.bar-chart').forEach(el => bObs.observe(el));
+</script>
+</body>
+</html>

@@ -454,8 +454,8 @@ footer{background:var(--bg);padding:28px 56px;display:flex;align-items:center;ju
     <div>
       <p class="contact-p">Seeking data analyst roles, reporting contracts, or freelance analysis work. Remote-friendly. Based in Port Harcourt. Available immediately.</p>
       <div class="c-links">
-        <a href="mailto:david.oluoma.favour@gmail.com" class="c-link">
-          <div class="icon">✉</div><div><div class="lb">Email</div><div class="vl">david.oluoma.favour@gmail.com</div></div>
+        <a href="#" class="c-link" id="emailLink">
+          <div class="icon">✉</div><div><div class="lb">Email</div><div class="vl">david.oluoma.favour&#64;gmail.com</div></div>
         </a>
         <a href="tel:+2349036482785" class="c-link">
           <div class="icon">📱</div><div><div class="lb">WhatsApp / Call</div><div class="vl">+234 903 648 2785</div></div>
@@ -485,6 +485,7 @@ footer{background:var(--bg);padding:28px 56px;display:flex;align-items:center;ju
 </footer>
 
 <script>
+(function(){var u='david.oluoma.favour';var d='gmail.com';var el=document.getElementById('emailLink');if(el){el.href='mailto:'+u+'@'+d;}})();
 const obs = new IntersectionObserver(entries => {
   entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('in'); });
 }, { threshold: 0.1 });
@@ -503,14 +504,4 @@ const bObs = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if(e.isIntersecting) {
       e.target.querySelectorAll('.bc-bar').forEach((b,i) => {
-        const h = b.style.height;
-        b.style.height = '0';
-        setTimeout(() => b.style.height = h, 150 + i * 80);
-      });
-    }
-  });
-},{threshold:0.3});
-document.querySelectorAll('.bar-chart').forEach(el => bObs.observe(el));
-</script>
-</body>
-</html>
+  

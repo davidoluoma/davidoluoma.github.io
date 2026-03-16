@@ -505,8 +505,8 @@ footer{background:var(--ink);padding:28px 64px;display:flex;align-items:center;j
     <div>
       <p class="contact-intro">I'm available for Partnerships Manager, Programme Coordinator, or Operations Lead roles — remote or in Port Harcourt. If you're building something that needs someone to hold it all together, that's me.</p>
       <div class="c-items">
-        <a href="mailto:david.oluoma.favour@gmail.com" class="c-item">
-          <div class="c-icon">✉</div><div><div class="c-lb">Email</div><div class="c-vl">david.oluoma.favour@gmail.com</div></div>
+        <a href="#" class="c-item" id="emailLink">
+          <div class="c-icon">✉</div><div><div class="c-lb">Email</div><div class="c-vl">david.oluoma.favour&#64;gmail.com</div></div>
         </a>
         <a href="tel:+2349036482785" class="c-item">
           <div class="c-icon">📱</div><div><div class="c-lb">WhatsApp / Call</div><div class="c-vl">+234 903 648 2785</div></div>
@@ -536,18 +536,11 @@ footer{background:var(--ink);padding:28px 64px;display:flex;align-items:center;j
 </footer>
 
 <script>
+(function(){var u='david.oluoma.favour';var d='gmail.com';var el=document.getElementById('emailLink');if(el){el.href='mailto:'+u+'@'+d;}})();
 const obs = new IntersectionObserver(entries => {
   entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('in'); });
 }, { threshold: 0.08 });
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
 function handleForm(e) {
-  e.preventDefault();
-  const btn = document.getElementById('fb');
-  btn.textContent = 'Sent ✓';
-  btn.style.background = '#2a6b4a';
-  setTimeout(() => { btn.textContent = 'Send Message →'; btn.style.background = ''; e.target.reset(); }, 3000);
-}
-</script>
-</body>
-</html>
+  e.preventDef

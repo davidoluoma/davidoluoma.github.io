@@ -499,42 +499,35 @@ const obs = new IntersectionObserver(entries => {
   entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('in'); });
 }, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-
 async function handleForm(e) {
   e.preventDefault();
-  const btn = document.getElementById('fb');
+  var btn = document.getElementById('fb');
+  var form = e.target;
   btn.textContent = 'Sending...';
   btn.disabled = true;
-  const data = new FormData(e.target);
-  try {
-    const res = await fetch('https://formspree.io/f/xdawpyvq', { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
-    if (res.ok) {
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', 'https://formspree.io/f/xdawpyvq');
+  xhr.setRequestHeader('Accept', 'application/json');
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState !== XMLHttpRequest.DONE) return;
+    if (xhr.status === 200) {
       btn.textContent = 'Sent ✓';
       btn.style.background = '#00e5a0';
-      e.target.reset();
+      btn.style.color = '#000';
+      form.reset();
+      setTimeout(function() {
+        btn.textContent = 'Send →';
+        btn.style.background = '';
+        btn.style.color = '';
+        btn.disabled = false;
+      }, 3000);
     } else {
       btn.textContent = 'Error — try again';
+      btn.disabled = false;
     }
-  } catch(err) {
-    btn.textContent = 'Error — try again';
-  }
-  btn.disabled = false;
-  setTimeout(() => { btn.textContent = 'Send →'; btn.style.background = ''; }, 3000);
+  };
+  xhr.send(new FormData(form));
 }
-
-// Animate bar chart on scroll
-const bObs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if(e.isIntersecting) {
-      e.target.querySelectorAll('.bc-bar').forEach((b,i) => {
-        const h = b.style.height;
-        b.style.height = '0';
-        setTimeout(() => b.style.height = h, 150 + i * 80);
-      });
-    }
-  });
-},{threshold:0.3});
-document.querySelectorAll('.bar-chart').forEach(el => bObs.observe(el));
 </script>
 </body>
 </html>

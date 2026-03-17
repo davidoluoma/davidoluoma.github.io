@@ -550,28 +550,34 @@ const obs = new IntersectionObserver(entries => {
   entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('in'); });
 }, { threshold: 0.08 });
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-
 async function handleForm(e) {
   e.preventDefault();
-  const btn = document.getElementById('fb');
+  var btn = document.getElementById('fb');
+  var form = e.target;
   btn.textContent = 'Sending...';
   btn.disabled = true;
-  const data = new FormData(e.target);
-  try {
-    const res = await fetch('https://formspree.io/f/xdawpyvq', { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
-    if (res.ok) {
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', 'https://formspree.io/f/xdawpyvq');
+  xhr.setRequestHeader('Accept', 'application/json');
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState !== XMLHttpRequest.DONE) return;
+    if (xhr.status === 200) {
       btn.textContent = 'Sent ✓';
       btn.style.background = '#4dff91';
       btn.style.color = '#000';
-      e.target.reset();
+      form.reset();
+      setTimeout(function() {
+        btn.textContent = 'Send Message →';
+        btn.style.background = '';
+        btn.style.color = '';
+        btn.disabled = false;
+      }, 3000);
     } else {
       btn.textContent = 'Error — try again';
+      btn.disabled = false;
     }
-  } catch(err) {
-    btn.textContent = 'Error — try again';
-  }
-  btn.disabled = false;
-  setTimeout(() => { btn.textContent = 'Send Message →'; btn.style.background = ''; btn.style.color = ''; }, 3000);
+  };
+  xhr.send(new FormData(form));
 }
 </script>
 </body>

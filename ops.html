@@ -526,10 +526,10 @@ footer{background:var(--ink);padding:28px 64px;display:flex;align-items:center;j
       </div>
     </div>
     <form class="cform" onsubmit="handleForm(event)">
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Email Address" required>
-      <input type="text" placeholder="Organisation / Role">
-      <textarea placeholder="Tell me about the opportunity…"></textarea>
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Email Address" required>
+      <input type="text" name="organisation" placeholder="Organisation / Role">
+      <textarea name="message" placeholder="Tell me about the opportunity…"></textarea>
       <button type="submit" class="btn-1" id="fb" style="border:none;cursor:pointer;align-self:flex-start">Send Message →</button>
     </form>
   </div>

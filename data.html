@@ -475,10 +475,10 @@ footer{background:var(--bg);padding:28px 56px;display:flex;align-items:center;ju
       </div>
     </div>
     <form class="cform" onsubmit="handleForm(event)">
-      <input type="text" placeholder="Name" required>
-      <input type="email" placeholder="Email" required>
-      <input type="text" placeholder="Company / Role">
-      <textarea placeholder="Tell me about the opportunity…"></textarea>
+      <input type="text" name="name" placeholder="Name" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="text" name="company" placeholder="Company / Role">
+      <textarea name="message" placeholder="Tell me about the opportunity…"></textarea>
       <button type="submit" class="btn-p" id="fb" style="border:none;cursor:pointer;align-self:flex-start">Send →</button>
     </form>
   </div>

@@ -595,10 +595,10 @@ footer{background:var(--bg);padding:28px 56px;display:flex;align-items:center;ju
       </div>
     </div>
     <form class="contact-form" onsubmit="handleForm(event)">
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Your Email" required>
-      <input type="text" placeholder="What do you need help with?">
-      <textarea placeholder="Tell me more about your project or role…"></textarea>
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <input type="text" name="subject" placeholder="What do you need help with?">
+      <textarea name="message" placeholder="Tell me more about your project or role…"></textarea>
       <button type="submit" class="btn-a" id="formBtn" style="border:none;cursor:pointer">Send Message →</button>
     </form>
   </div>

@@ -375,47 +375,15 @@ footer{background:var(--bg);padding:28px 56px;display:flex;align-items:center;ju
 
     </div>
 
-    <!-- SQL / Bottom wide -->
-    <div class="proj-card" style="grid-column:span 2">
-      <div class="proj-mockup" style="aspect-ratio:auto;height:280px;overflow:hidden">
-        <div class="mockup-sql"style="height:280px;overflow:hidden">
-          <div class="sql-tabs">
-            <div class="sql-tab active">query_01.sql</div>
-            <div class="sql-tab">clean_data.py</div>
-            <div class="sql-tab">pivot_report.xlsx</div>
-          </div>
-          <div class="sql-editor">
-            <span class="sql-cmt">-- Customer support ticket analysis — Ratedby10 (300+ daily records)</span><br>
-            <span class="sql-kw">SELECT</span>&nbsp;<br>
-            &nbsp;&nbsp;issue_category,<br>
-            &nbsp;&nbsp;<span class="sql-fn">COUNT</span>(*) <span class="sql-kw">AS</span> ticket_count,<br>
-            &nbsp;&nbsp;<span class="sql-fn">AVG</span>(resolution_time_hrs) <span class="sql-kw">AS</span> avg_resolution,<br>
-            &nbsp;&nbsp;<span class="sql-fn">ROUND</span>(<span class="sql-fn">COUNT</span>(*) * 100.0 / <span class="sql-fn">SUM</span>(<span class="sql-fn">COUNT</span>(*)) <span class="sql-kw">OVER</span>(), 1) <span class="sql-kw">AS</span> pct_share<br>
-            <span class="sql-kw">FROM</span> support_tickets<br>
-            <span class="sql-kw">WHERE</span> created_date <span class="sql-kw">BETWEEN</span> <span class="sql-str">'2024-01-01'</span> <span class="sql-kw">AND</span> <span class="sql-str">'2024-04-30'</span><br>
-            <span class="sql-kw">GROUP BY</span> issue_category<br>
-            <span class="sql-kw">ORDER BY</span> ticket_count <span class="sql-kw">DESC</span>;
-          </div>
-          <div class="sql-result">
-            <div class="sql-result-head"><div>issue_category</div><div>ticket_count</div><div>avg_resolution</div><div>pct_share</div></div>
-            <div class="sql-result-row"><div>Account Access</div><div class="sql-val-green">2,847</div><div class="sql-val-blue">1.2 hrs</div><div class="sql-val-yellow">34.1%</div></div>
-            <div class="sql-result-row"><div>Payment Issues</div><div class="sql-val-green">1,932</div><div class="sql-val-blue">2.8 hrs</div><div class="sql-val-yellow">23.2%</div></div>
-            <div class="sql-result-row"><div>Ad Setup Help</div><div class="sql-val-green">1,644</div><div class="sql-val-blue">0.9 hrs</div><div class="sql-val-yellow">19.7%</div></div>
-          </div>
-        </div>
-      </div>
-      <div class="proj-info">
-        <h3>Support Ticket Data Analysis — Ratedby10</h3>
-        <p>Applied SQL-style analysis to 8,300+ support tickets across a 4-month period. Identified top issue categories, resolution time patterns, and SLA bottlenecks. Findings used to redesign the escalation matrix, cutting average resolution time by 20%.</p>
-        <div class="proj-tags"><span class="ptag">SQL</span><span class="ptag">Excel</span><span class="ptag">Pattern Analysis</span><span class="ptag">Process Improvement</span><span class="ptag">KPI Reporting</span></div>
-        <div class="proj-outcome">20% resolution time reduction · 100% SLA compliance achieved</div>
-      </div>
-    </div>
-
+   <!-- SQL / Bottom wide -->
+<div class="proj-card" style="grid-column:span 2">
+  <div class="proj-info" style="border-top:1px solid var(--border)">
+    <h3>Support Ticket Data Analysis — Ratedby10</h3>
+    <p>Applied SQL-style analysis to 8,300+ support tickets across a 4-month period. Identified top issue categories, resolution time patterns, and SLA bottlenecks. Findings used to redesign the escalation matrix, cutting average resolution time by 20%.</p>
+    <div class="proj-tags"><span class="ptag">SQL</span><span class="ptag">Excel</span><span class="ptag">Pattern Analysis</span><span class="ptag">Process Improvement</span><span class="ptag">KPI Reporting</span></div>
+    <div class="proj-outcome">20% resolution time reduction · 100% SLA compliance achieved</div>
   </div>
-  </div>
-    </div>
-
+</div>
     <!-- SME Cash Flow Early Warning System -->
     <div class="proj-card" style="grid-column:span 2">
       <div class="proj-mockup" style="height:auto">

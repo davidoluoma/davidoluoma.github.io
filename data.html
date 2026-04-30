@@ -342,29 +342,7 @@ footer{background:var(--bg);padding:28px 56px;display:flex;align-items:center;ju
 
       <!-- Engagement Analysis -->
       <div class="proj-card">
-        <div class="proj-mockup">
-          <div class="mockup-engagement">
-            <div class="eng-title">Sales &amp; Engagement Analysis — Campaign Data</div>
-            <div class="eng-top">
-              <div class="eng-metric"><div class="ev">+20%</div><div class="el">Targeting Improvement</div></div>
-              <div class="eng-metric"><div class="ev" style="color:var(--accent)">4.2x</div><div class="el">ROI Identified</div></div>
-            </div>
-            <div class="eng-chart">
-              <div class="eng-chart-title">Engagement Rate by Content Type — Weekly</div>
-              <div class="scatter">
-                <div class="s-bar"><div class="s-line" style="height:30px"></div><div class="s-dot" style="opacity:0.5"></div><div class="s-lbl">W1</div></div>
-                <div class="s-bar"><div class="s-line" style="height:45px"></div><div class="s-dot"></div><div class="s-lbl">W2</div></div>
-                <div class="s-bar"><div class="s-line" style="height:35px"></div><div class="s-dot" style="opacity:0.6"></div><div class="s-lbl">W3</div></div>
-                <div class="s-bar"><div class="s-line" style="height:55px"></div><div class="s-dot"></div><div class="s-lbl">W4</div></div>
-                <div class="s-bar"><div class="s-line" style="height:50px"></div><div class="s-dot"></div><div class="s-lbl">W5</div></div>
-                <div class="s-bar"><div class="s-line" style="height:65px"></div><div class="s-dot"></div><div class="s-lbl">W6</div></div>
-                <div class="s-bar"><div class="s-line" style="height:70px"></div><div class="s-dot"></div><div class="s-lbl">W7</div></div>
-                <div class="s-bar"><div class="s-line" style="height:78px"></div><div class="s-dot"></div><div class="s-lbl">W8</div></div>
-              </div>
-            </div>
-            <div class="eng-insight"><strong>Key Finding:</strong> Video content outperformed static posts by 3.2x. Recommended shift in content mix → 20% campaign targeting improvement achieved.</div>
-          </div>
-        </div>
+
         <div class="proj-info">
           <h3>Sales &amp; Engagement Analysis — Self-Driven</h3>
           <p>Independently cleaned and analysed large engagement datasets. Identified performance trends by content type, time slot, and audience segment. Delivered a structured insights report with strategic recommendations.</p>
@@ -377,7 +355,46 @@ footer{background:var(--bg);padding:28px 56px;display:flex;align-items:center;ju
 
    <!-- SQL / Bottom wide -->
 <div class="proj-card" style="grid-column:span 2">
-  <div class="proj-info" style="border-top:1px solid var(--border)">
+  <div class="proj-mockup" style="height:280px;overflow:hidden;background:#050712;padding:20px;font-family:'IBM Plex Mono',monospace">
+    <div style="display:flex;gap:0;margin-bottom:12px;border-bottom:1px solid var(--border)">
+      <div style="font-size:0.6rem;padding:6px 14px;color:var(--accent);border-bottom:2px solid var(--accent)">query_01.sql</div>
+      <div style="font-size:0.6rem;padding:6px 14px;color:var(--muted)">clean_data.py</div>
+      <div style="font-size:0.6rem;padding:6px 14px;color:var(--muted)">pivot_report.xlsx</div>
+    </div>
+    <div style="background:var(--s1);border:1px solid var(--border);padding:14px;font-size:0.62rem;line-height:1.7;margin-bottom:10px">
+      <span style="color:var(--muted)">-- Customer support ticket analysis — Ratedby10 (300+ daily records)</span><br>
+      <span style="color:#ff79c6;font-weight:700">SELECT</span><br>
+      &nbsp;&nbsp;issue_category,<br>
+      &nbsp;&nbsp;<span style="color:var(--accent)">COUNT</span>(*) <span style="color:#ff79c6;font-weight:700">AS</span> ticket_count,<br>
+      &nbsp;&nbsp;<span style="color:var(--accent)">AVG</span>(resolution_time_hrs) <span style="color:#ff79c6;font-weight:700">AS</span> avg_resolution<br>
+      <span style="color:#ff79c6;font-weight:700">FROM</span> support_tickets<br>
+      <span style="color:#ff79c6;font-weight:700">GROUP BY</span> issue_category<br>
+      <span style="color:#ff79c6;font-weight:700">ORDER BY</span> ticket_count <span style="color:#ff79c6;font-weight:700">DESC</span>;
+    </div>
+    <div style="background:var(--s2);border:1px solid var(--border)">
+      <div style="display:grid;grid-template-columns:1.5fr 1fr 1fr;background:var(--s3);font-size:0.57rem;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase">
+        <div style="padding:6px 10px;border-right:1px solid var(--border)">issue_category</div>
+        <div style="padding:6px 10px;border-right:1px solid var(--border)">ticket_count</div>
+        <div style="padding:6px 10px">avg_resolution</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1.5fr 1fr 1fr;font-size:0.6rem;border-top:1px solid var(--border)">
+        <div style="padding:6px 10px;border-right:1px solid var(--border)">Account Access</div>
+        <div style="padding:6px 10px;border-right:1px solid var(--border);color:var(--accent2);font-weight:700">2,847</div>
+        <div style="padding:6px 10px;color:var(--accent)">1.2 hrs</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1.5fr 1fr 1fr;font-size:0.6rem;border-top:1px solid var(--border)">
+        <div style="padding:6px 10px;border-right:1px solid var(--border)">Payment Issues</div>
+        <div style="padding:6px 10px;border-right:1px solid var(--border);color:var(--accent2);font-weight:700">1,932</div>
+        <div style="padding:6px 10px;color:var(--accent)">2.8 hrs</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1.5fr 1fr 1fr;font-size:0.6rem;border-top:1px solid var(--border)">
+        <div style="padding:6px 10px;border-right:1px solid var(--border)">Ad Setup Help</div>
+        <div style="padding:6px 10px;border-right:1px solid var(--border);color:var(--accent2);font-weight:700">1,644</div>
+        <div style="padding:6px 10px;color:var(--accent)">0.9 hrs</div>
+      </div>
+    </div>
+  </div>
+  <div class="proj-info">
     <h3>Support Ticket Data Analysis — Ratedby10</h3>
     <p>Applied SQL-style analysis to 8,300+ support tickets across a 4-month period. Identified top issue categories, resolution time patterns, and SLA bottlenecks. Findings used to redesign the escalation matrix, cutting average resolution time by 20%.</p>
     <div class="proj-tags"><span class="ptag">SQL</span><span class="ptag">Excel</span><span class="ptag">Pattern Analysis</span><span class="ptag">Process Improvement</span><span class="ptag">KPI Reporting</span></div>
